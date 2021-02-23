@@ -1,0 +1,3 @@
+[submodule "include/cppcodec"]
+	path = include/cppcodec
+	url = git@github.com:tplgy/cppcodec.git
