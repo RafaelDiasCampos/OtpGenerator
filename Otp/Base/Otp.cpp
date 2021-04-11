@@ -62,13 +62,10 @@ size_t getDecodedSizeFromSecret(const std::string secret)
 // Generate OTP code with the parameters given.
 // Parameter secret should be in base32 format ([a-z]|[A-Z]|[2-7])
 // Parameters interval and digits should be greater than 0
-std::string generateOtp (std::string secret, uint64_t count, uint8_t interval = 30, uint8_t digits = 6)
+std::string generateOtp (std::string secret, uint64_t count, uint8_t digits = 6)
 {
     if (digits <= 0) {
         throw "Digits parameter should be greater than 0.";
-    }
-    if (interval <= 0) {
-        throw "Interval parameter should be greater than 0.";
     }
 
     // Add padding

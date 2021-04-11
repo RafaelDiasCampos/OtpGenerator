@@ -3,9 +3,10 @@ CXXFLAGS=-lssl -lcrypto -g -ggdb -O2 -Wall -I include/cppcodec
 
 TARGET=OtpMain
 OBJS=OtpMain.o \
-	 Otp/Otp.o \
-	 Otp/Totp.o \
-	 Otp/OtpCode.o
+	 Otp/Base/Otp.o \
+	 Otp/Base/Totp.o \
+	 Otp/Classes/HotpCode.o \
+	 Otp/Classes/TotpCode.o
 
 all: $(TARGET)
 
@@ -16,11 +17,13 @@ install: cp $(TARGET) /usr/local/bin
 
 OtpMain.o:
 
-Otp/Otp.o: Otp/Otp.h
+Otp/Base/Otp.o: Otp/Base/Otp.h
 
-Otp/Totp.o: Otp/Totp.h
+Otp/Base/Totp.o: Otp/Base/Totp.h
 
-Otp/OtpCode.o: Otp/OtpCode.h
+Otp/Classes/HotpCode.o: Otp/Classes/HotpCode.h
+
+Otp/Classes/TotpCode.o: Otp/Classes/TotpCode.h
 
 $(TARGET): $(OBJS)
 	       $(CXX) -o $(TARGET) $(OBJS) $(CXXFLAGS) 
